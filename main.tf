@@ -161,8 +161,7 @@ resource "null_resource" "hosts" {
    }
    inline = [
      "cd /home/silveira/elastic-terraform-gcp/ansible",
-     //"ansible-playbook -i hosts playbooks/elastic.yml",
-     "echo OK"
+     "ansible-playbook -i hosts playbooks/elastic.yml",
    ]
  }
 }
