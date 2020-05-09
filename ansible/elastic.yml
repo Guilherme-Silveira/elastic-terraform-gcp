@@ -2,34 +2,47 @@
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_heap_size: "1g"
+    es_heap_size: "3g"
     es_config:
       cluster.name: "silveira"
       cluster.initial_master_nodes: "elastic-01,elastic-02,elastic-03"
       discovery.seed_hosts: "elastic-01,elastic-02,elastic-03"
       http.port: 9200
       bootstrap.memory_lock: false
+      network.host: _site_
+    es_api_host: "10.150.0.10"
 
 - hosts: elastic-02
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_heap_size: "1g"
+    es_heap_size: "3g"
     es_config:
       cluster.name: "silveira"
       cluster.initial_master_nodes: "elastic-01,elastic-02,elastic-03"
       discovery.seed_hosts: "elastic-01,elastic-02,elastic-03"
       http.port: 9200
       bootstrap.memory_lock: false
+      network.host: _site_
+    es_api_host: "10.150.0.11"
 
 - hosts: elastic-03
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_heap_size: "1g"
+    es_heap_size: "3g"
     es_config:
       cluster.name: "silveira"
       cluster.initial_master_nodes: "elastic-01,elastic-02,elastic-03"
       discovery.seed_hosts: "elastic-01,elastic-02,elastic-03"
       http.port: 9200
       bootstrap.memory_lock: false
+      network.host: _site_
+    es_api_host: "10.150.0.12"
+
+- hosts: elastic-01
+  roles:
+    - role: geerlingguy.kibana
+  vars:
+    - kibana_elasticsearch_url: "['http://elastic-01:9200', 'http://elastic-02:9200', 'http://elastic-03:9200']"
+    - kibana_version: "7.x"
