@@ -1,8 +1,0 @@
-instance1 = "elastic-01"
-instance2 = "elastic-02"
-instance3 = "elastic-03"
-zone = "us-east4"
-disk_size = "30"
-bastion_ip = "34.68.62.211"
-private_key = "~/.ssh/silveira"
-ssh_key = "~/.ssh/silveira.pub"

@@ -1,1 +1,1 @@
-terraform apply -var-file='elastic.tfvars' -auto-approve
+cd iac && terraform apply -var-file='elastic.tfvars' -auto-approve
