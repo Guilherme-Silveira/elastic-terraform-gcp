@@ -1,3 +1,4 @@
+---
 - hosts: elastic-01
   roles:
     - role: elastic.elasticsearch

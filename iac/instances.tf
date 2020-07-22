@@ -12,7 +12,7 @@ resource "google_compute_instance" "ece-01" {
  }
 
  network_interface {
-   network    = "default"
+   network    = var.network
    network_ip = var.ip1
    access_config {}
  }
@@ -35,7 +35,7 @@ resource "google_compute_instance" "ece-02" {
  }
 
  network_interface {
-   network    = "default"
+   network    = var.network
    network_ip = var.ip2
    access_config {}
  }
@@ -58,7 +58,7 @@ resource "google_compute_instance" "ece-03" {
  }
 
  network_interface {
-   network    = "default"
+   network    = var.network
    network_ip = var.ip3
    access_config {}
  }

@@ -86,10 +86,26 @@ variable "ansible_private_key" {
  type = string
 }
 
+variable "ansible_home" {
+ type = string
+}
+
 variable "private_key" {
  type = string
 }
 
 variable "ssh_key" {
+ type = string
+}
+
+variable "network" {
+ type = string
+}
+
+variable "es_heap_size" {
+ type = string
+}
+
+variable "cluster_name" {
  type = string
 }
