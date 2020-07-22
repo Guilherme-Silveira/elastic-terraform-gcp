@@ -1,0 +1,9 @@
+---
+# tasks file for build_hosts
+- name: Build hosts file
+  lineinfile: dest=/etc/hosts
+              state=present
+              dest=/etc/hosts
+              regexp='.*{{ item }}$' line="{{ hostvars[item].ansible_default_ipv4.address }} {{ hostvars[item].hostname }} {{ hostvars[item].host }}"
+  when: hostvars[item].ansible_default_ipv4.address is defined
+  with_items: "{{ groups['cluster'] }}"

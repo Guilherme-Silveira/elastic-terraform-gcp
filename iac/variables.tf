@@ -109,3 +109,7 @@ variable "es_heap_size" {
 variable "cluster_name" {
  type = string
 }
+
+variable "user" {
+ type = string
+}
