@@ -113,3 +113,7 @@ variable "cluster_name" {
 variable "user" {
  type = string
 }
+
+variable "es_version" {
+ type = string
+}
