@@ -120,6 +120,7 @@ resource "null_resource" "hosts" {
       "    - role: geerlingguy.logstash",
       "  vars:",
       "    - logstash_version: '7.x'",
+      "    - logstash_package: 'logstash-${var.es_version}'".
       "EOF",
       "ansible-playbook -i hosts elastic.yml",
    ]
