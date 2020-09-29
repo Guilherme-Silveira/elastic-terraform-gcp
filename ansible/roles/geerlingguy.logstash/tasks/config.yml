@@ -1,4 +1,10 @@
 ---
+- name: Set JAVA_HOME
+  shell: export JAVA_HOME=/usr/share/elasticsearch/jdk
+
+- name: Define JAVA_HOME in PATH
+  shell: export PATH=$PATH:/usr/share/elasticsearch/jdk/bin
+
 - name: Create Logstash configuration files.
   template:
     src: "{{ item }}.j2"
