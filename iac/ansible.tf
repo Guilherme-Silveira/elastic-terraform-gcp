@@ -127,6 +127,7 @@ resource "null_resource" "hosts" {
       "  vars:",
       "    - logstash_version: '7.x'",
       "    - logstash_package: 'logstash-${var.es_version}'",
+      "    - logstash_elasticsearch_hosts: '[http://${var.instance1}:9200,http://${var.instance2}:9200,http://${var.instance3}:9200]'",
       "EOF",
       "ansible-playbook -i hosts elastic.yml",
    ]
