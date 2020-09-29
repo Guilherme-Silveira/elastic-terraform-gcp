@@ -115,6 +115,11 @@ resource "null_resource" "hosts" {
       "    - kibana_version: '7.x'",
       "    - kibana_package_state: 'present'",
       "    - kibana_package: 'kibana-${var.es_version}'",
+      "- hosts: elastic-02",
+      "  roles:",
+      "    - role: geerlingguy.logstash",
+      "  vars:",
+      "    - logstash_version: '7.x'",
       "EOF",
       "ansible-playbook -i hosts elastic.yml",
    ]
