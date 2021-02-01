@@ -45,14 +45,14 @@
       network.host: _site_
     es_api_host: "10.150.0.12"
 
-- hosts: elastic-01
+- hosts: kibana
   roles:
     - role: geerlingguy.kibana
   vars:
     - kibana_elasticsearch_url: "['http://elastic-01:9200', 'http://elastic-02:9200', 'http://elastic-03:9200']"
     - kibana_version: "7.x"
 
-- hosts: elastic-02
+- hosts: elastic-03
   roles:
     - role: geerlingguy.logstash
   vars:
