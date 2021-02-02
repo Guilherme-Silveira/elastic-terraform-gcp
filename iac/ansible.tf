@@ -1,14 +1,14 @@
 resource "null_resource" "hosts" {
  triggers = {
-   anything1 = google_compute_instance.ece-01.network_interface.0.access_config.0.nat_ip
-   anything2 = google_compute_instance.ece-02.network_interface.0.access_config.0.nat_ip
-   anything3 = google_compute_instance.ece-03.network_interface.0.access_config.0.nat_ip
+   anything1 = google_compute_instance.elastic-01.network_interface.0.access_config.0.nat_ip
+   anything2 = google_compute_instance.elastic-02.network_interface.0.access_config.0.nat_ip
+   anything3 = google_compute_instance.elastic-03.network_interface.0.access_config.0.nat_ip
  }
  provisioner "remote-exec" {
    connection {
      type = "ssh"
      user = var.user
-     host = google_compute_instance.ece-01.network_interface.0.access_config.0.nat_ip
+     host = google_compute_instance.elastic-01.network_interface.0.access_config.0.nat_ip
      private_key = file(var.private_key)
    }
    inline = [
@@ -20,7 +20,7 @@ resource "null_resource" "hosts" {
    connection {
      type = "ssh"
      user = var.user
-     host = google_compute_instance.ece-02.network_interface.0.access_config.0.nat_ip
+     host = google_compute_instance.elastic-02.network_interface.0.access_config.0.nat_ip
      private_key = file(var.private_key)
    }
    inline = [
@@ -31,7 +31,7 @@ resource "null_resource" "hosts" {
    connection {
      type = "ssh"
      user = var.user
-     host = google_compute_instance.ece-03.network_interface.0.access_config.0.nat_ip
+     host = google_compute_instance.elastic-03.network_interface.0.access_config.0.nat_ip
      private_key = file(var.private_key)
    }
    inline = [
@@ -67,7 +67,7 @@ resource "null_resource" "hosts" {
       "    - role: geerlingguy.java",
       "      when: ansible_os_family == 'RedHat'",
       "      java_packages:",
-      "        - java-1.8.0-openjdk",
+      "        - java-11-openjdk",
       "- hosts: cluster",
       "  roles:",
       "    - role: build_hosts",
